@@ -1,0 +1,2 @@
+SECURED AND MONITORED WEB INFRASTRUCTURE
+In this three-server web infrastructure hosting www.foobar.com, security, encryption, and monitoring are paramount. We've implemented the following enhancements:
