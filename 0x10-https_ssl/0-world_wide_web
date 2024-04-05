@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# displays information about subdomains.
+
+config () {
+    script=$(dig "$2"."$1" | grep -A1 'ANSWER SECTION:' | tr '\t' '\n' | tail -2 | tr '\n' ' ')
+    echo "$2 $script" | awk '{print "The subdomain " $1 " is a " $2 " record and points to " $3}'
+}
+
+if [ "$#" == 1 ]
+then
+
+    subdomains=("www" "lb-01" "web-01" "web-02")
+
+  for subdomain in "${subdomains[@]}"
+  do
+    config "$1" "$subdomain"
+  done
+
+elif [ "$#" == 2 ]
+then
+  config "$1" "$2"
+fi
