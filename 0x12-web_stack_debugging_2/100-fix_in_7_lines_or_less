@@ -1,6 +1,4 @@
 #!/bin/bash
-# Fixes the issue with the server
-
-sed -i '/user/s/nginx;/nginx nginx;/' /etc/nginx/nginx.conf
+#short and sweet fix
+sed -i 's/user.*;/user nginx nginx;/' /etc/nginx/nginx.conf
 service nginx restart
-
